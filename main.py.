@@ -1,0 +1,45 @@
+import json
+import os
+from datetime import datetime
+
+DATA_FILE = "books.json"
+
+def load_books():
+    if not os.path.exists(DATA_FILE):
+        return []
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+def save_books(books):
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(books, f, ensure_ascii=False, indent=2)
+
+def main():
+    while True:
+        print("\n=== Трекер прочитанных книг ===")
+        print("1. Добавить книгу")
+        print("2. Список всех книг")
+        print("3. Средняя оценка")
+        print("4. Статистика по авторам")
+        print("5. Удалить книгу")
+        print("0. Выход")
+
+        choice = input("Выберите пункт: ")
+
+        if choice == "1":
+            print("Добавление книги (заглушка)")
+        elif choice == "2":
+            print("Список книг (заглушка)")
+        elif choice == "3":
+            print("Средняя оценка (заглушка)")
+        elif choice == "4":
+            print("Статистика по авторам (заглушка)")
+        elif choice == "5":
+            print("Удаление книги (заглушка)")
+        elif choice == "0":
+            break
+        else:
+            print("Неверный ввод.")
+
+if __name__ == "__main__":
+    main()
